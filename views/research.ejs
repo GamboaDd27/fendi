@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  
+  <title class="f">Anti-AntiVax</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="icon" href="/images/favicon.ico" />
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><span class="glyphicon  glyphicon glyphicon-ice-lolly-tasted align-bottom" aria-hidden="true">Anti-AntiVax</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/research">Research</a></li>
+          <li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/campgrounds">Forum</a></li>
+          <li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/map">Data Map</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if (!currentUser) { %>
+            <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
+            <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register">Sign Up</a></li>
+          <% } else { %>
+            <% if (currentUser.isAdmin) { %>
+              <li><a href="/users/<%= currentUser._id %>">Admin. <%= currentUser.username %></a></li>
+            <% } else { %>
+            <li><a href="/users/<%= currentUser._id %>">Hi, <%= currentUser.username %></a></li>
+            <% } %>
+            <li><a href="/logout">Logout</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <% if (error && error.length > 0) {%>
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
+      </div>
+    <% } %>
+    <% if (success && success.length > 0) {%>
+      <div class="alert alert-success" role="alert">
+        <%= success %>
+      </div>
+    <% } %>
+  </div>
+  <div class="container">
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+      <div class="col-md-12">
+        <h4>Research</h4>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">A Population-Based Study of Measles, Mumps, and Rubella Vaccination and Autism</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://www.nejm.org/doi/full/10.1056/nejmoa021134">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+     <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">            Mumps, measles, and rubella vaccine and the incidence of autism recorded by general practitioners: a time trend analysis
+</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://www.bmj.com/content/322/7284/460.short?casa_token=5VCNJhzWUT8AAAAA:uS7puxmaQV8Pxc7jyhM6fcIKRT6W1Ra7zzQgi44sqvBZWiaVX6UVYZ7G7wQ8pZ9DzblMUnaPLbB9">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+       <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">The MMR vaccination and autism controversy in United Kingdom 1998–2005: Inevitable community outrage or a failure of risk communication?</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://www.sciencedirect.com/science/article/pii/S0264410X06002076">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+       <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">Autism and Measles-Mumps-Rubella Vaccination</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="http://pediatrics.aappublications.org/content/113/2/259?sso=1&sso_redirect_count=1&nfstatus=401&nftoken=00000000-0000-0000-0000-000000000000&nfstatusdescription=ERROR:+No+local+token">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+  </div>
+
+
+
+   <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">Wakefield’s article linking MMR vaccine and autism was fraudulent</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://www.bmj.com/content/342/bmj.c7452">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+     <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">Autism and Vaccination—The Current Evidence</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1744-6155.2009.00194.x">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+       <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">Vaccines and Autism: A Tale of Shifting Hypotheses</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://academic.oup.com/cid/article/48/4/456/284219">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+       <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">MMR vaccination and autism 1998</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://www.sciencedirect.com/science/article/pii/S0264410X06002076">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+  </div>
+  <div class="container">
+  <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">Mercury and autism: Accelerating Evidence?</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://pdfs.semanticscholar.org/3393/10962b82f77eb24216ef43f1478d902221ff.pdf">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+     <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            
+            <h4 id="guccigang" class="caption">Parental decision-making in childhood vaccination</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://www.sciencedirect.com/science/article/pii/S0264410X06002192">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+       <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">What causes autism? Exploring the environmental contribution</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://www.ncbi.nlm.nih.gov/pubmed/20087185">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+       <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">No effect of MMR withdrawal on the incidence of autism: a total population study</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://www.ncbi.nlm.nih.gov/pubmed/15877763">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+  
+
+
+
+
+
+
+
+  <div class="container">
+  <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">The Blame Frame: Media Attribution of Culpability About the MMR–Autism Vaccination Scare</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://www.tandfonline.com/doi/abs/10.1080/10410236.2011.633158">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+     <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">Lancet retracts 12-year-old article linking autism to MMR vaccines</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="http://search.proquest.com/openview/14d3570a8ccbc6e7b81787330cf41855/1?pq-origsite=gscholar&cbl=41339&casa_token=BAYFFufoA_0AAAAA:0Zz_cQdCL9pRVGzWF8XjMa4WqPWu4c0dsv2i-aXmPBN0tfwdwIpDDgwrkh7b7hb-EjgRh6IoPCg">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+       <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">Communication and miscommunication of risk: understanding UK parents' attitudes to combined MMR vaccinationn</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://www.bmj.com/content/327/7417/725.short?casa_token=37KeXl3pMFMAAAAA:pQxljx2pf3Piel02wiUMHA9PCI8bKo-V-XjIONipNOveIhHIvKw4HsnmlHvMyWd9J9bqfN_HTM8B">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+       <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="" alt="" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption">Neurologic Disorders After Measles-Mumps-Rubella Vaccination</h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="https://pediatrics.aappublications.org/content/110/5/957.short?casa_token=y9lMXGDpYU0AAAAA:tNMPEpiXBdsiVOiyDhdfWqt0q1x28x-5FmdSKjjJs3r5qV3o6CrDUPMeMwhuHiWJZ_kWkt94jY7l">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+<body>
+</body>
+<!DOCTYPE html>

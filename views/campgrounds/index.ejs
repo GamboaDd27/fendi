@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+  <header class="jumbotron">
+    <h1 id="xdxd"></span> Welcome to Anti-AntiVax!</h1>
+    <form class="form-inline" action="/campgrounds" method="GET">
+      <div class="form-group has-feedback">
+        <label for="search"></label>
+        <input class="form-control" type="text" name="search" placeholder="Search posts" autocomplete="off" />
+        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+      </div>
+    </form>
+    <hr>
+    <a class="pull-right" href="/campgrounds/new">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      Start new thread
+    </a>
+  </header>
+
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% campgrounds.forEach(campground => {%>
+      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="campground__image" data-src="<%= campground.image.url %>" alt="<%= campground.name %>" />
+          <div class="caption">
+            <h4 id="guccigang" class="caption"><%= campground.name %></h4>
+          </div>
+          <p>
+            <a class="btn btn-outline-info btn-sm btn-b-mg" href="/campgrounds/<%= campground._id %>">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+    <% })%>
+  </div>
+<% include ../partials/footer %>
