@@ -64,4 +64,6 @@ app.get("/map", function (req, res) {
 app.get("/research", function (req, res) {
   res.render("research");
 })
+
+
 app.listen(3001, process.env.IP, () => console.log("The YelpCamp Server Has Started!"));
